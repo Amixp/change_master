@@ -3,34 +3,54 @@ mysql slave's master host change to another middle master or the high level mast
 
 Introduction:
 
-scena1:
-    Original topology
+##scena1:
+
+```
         A ---> B
           +--> C
-    make C replicate from B(we call it 'down'), after change it look like this
+```
+
+make C replicate from B(we call it 'down'), after change it look like this
+
+```
         A ---> B ---> C
-scena2:
-    Original topology
+        
+```
+##scena2:
+
+```
         A ---> B ---> C
-    make C replicate from A(we call it 'up'), after change it look like this
+```
+
+make C replicate from A(we call it 'up'), after change it look like this
+
+```
         A ---> B
           +--> C
-scena3:
-    Original topology
+```
+
+##scena3:
+
+```
         A ---> B ---> C
                   +--> D
-    make C replicate from D(we call it 'middle'), after change it look like this
+```
+
+make C replicate from D(we call it 'middle'), after change it look like this
+
+```
         A ---> B
           +--> D ---> C
+```
 
-Depedency:
+##Depedency:
     golang 1.3+
     go get code.google.com/p/gcfg
     go get github.com/go-sql-driver/mysql
 
-Installation:
+##Installation:
     go build -o change_master main.go
 
-Features:
+##Features:
 
-Usage:
+##Usage:
